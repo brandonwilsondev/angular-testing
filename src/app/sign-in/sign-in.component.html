@@ -1,0 +1,58 @@
+<mat-grid-list cols="2" rowHeight="1:1">
+  <form
+    [formGroup]="userForm"
+    class="example-container"
+    (ngSubmit)="doSubmit()"
+    class="user_form"
+  >
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Enter First Name"
+        formControlName="firstName"
+        required
+      />
+      <mat-error *ngIf="isFieldValid('firstName')"
+        >Please Enter First Name
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Enter Last Name"
+        formControlName="lastName"
+        required
+      />
+      <mat-error *ngIf="isFieldValid('lastName')"
+        >Please Enter Last Name</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Enter Description"
+        formControlName="description"
+        required
+      />
+      <mat-error *ngIf="isFieldValid('description')"
+        >Please Enter Description</mat-error
+      >
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      type="submit"
+      [disabled]="!userForm.valid"
+      color="primary"
+    >
+      Search
+    </button>
+  </form>
+</mat-grid-list>
+<style>
+  .user_form {
+    padding: 100px;
+    display: grid;
+  }
+</style>
